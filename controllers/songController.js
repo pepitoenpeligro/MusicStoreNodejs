@@ -1,5 +1,5 @@
 exports.getSongs = (request, response) => {
-    let songs = [
+    var songs = [
         {
             title: 'Physical',
             album: 'Future Nostalgia',
@@ -17,4 +17,12 @@ exports.getSongs = (request, response) => {
     response.status(200);
     response.header("Content-Type",'application/json');
     response.send(JSON.stringify(songs, null, 3));
+}
+
+exports.postSong = (request, response) =>{
+    response.status(200);
+    response.send({
+        song: request.body,
+        message: 'Song POST ok'
+    })
 }
