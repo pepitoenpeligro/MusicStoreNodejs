@@ -1,0 +1,25 @@
+{
+  "name": "6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-run": "^1.7.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
