@@ -26,3 +26,4 @@ app.listen(PORT, () => {
     console.log(`Microservice is running on port ${PORT}`);
 });
 
+module.exports = app;
