@@ -9,7 +9,7 @@ const client = new Etcd3();
 
 require('dotenv').config({path: __dirname + '/.env'});
 
-// await client.put('fagota').value('fernando');
+
 
 
 async function showEnvironment(){
