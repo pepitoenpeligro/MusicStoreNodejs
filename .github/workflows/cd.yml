@@ -10,10 +10,10 @@ jobs:
     - name: Deploy MyApp
       uses: subhamx/ibm-cloud-foundry-deploy@master
       with:
-        # For Users who have opted for Authentication using Email & Password
-        EMAIL: ${{ secrets.IBM_CLOUD_API_KEY.USER_EMAIL }}
-        PASSWORD: ${{ secrets.IBM_CLOUD_API_KEY.USER_PASSWORD }}
-        # For Users who have opted for Authentication using API KEY
+        # # For Users who have opted for Authentication using Email & Password
+        # EMAIL: ${{ secrets.IBM_CLOUD_API_KEY.USER_EMAIL }}
+        # PASSWORD: ${{ secrets.IBM_CLOUD_API_KEY.USER_PASSWORD }}
+        # # For Users who have opted for Authentication using API KEY
         API_KEY: ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
         # Cloud Foundry API Endpoint
         CF_API_ENDPOINT: ${{ secrets.IBM_CLOUD_API_KEY.CF_API_ENDPOINT }}
