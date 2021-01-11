@@ -8,6 +8,7 @@ jobs:
     steps:
       - name: Download my repo
         uses: actions/checkout@v2
+      - name: Display repo files
         run: |
           echo "This is all worflows can see:"
           ls -la 
@@ -28,5 +29,4 @@ jobs:
           ibmcloud target -o ${{ secrets.IBM_CLOUD_FOUNDRY_ORGANIZER_EMAIL }} -s ${{ secrets.IBM_CLOUD_FOUNDRY_PROJECT_ESPACE }}
       - name: Despliego en Cloud Foundry
         run: |
-          
           ibmcloud cf push -f echo $(find . -name "manifest.yml" | head -1)
