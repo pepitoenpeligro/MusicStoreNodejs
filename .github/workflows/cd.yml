@@ -18,7 +18,7 @@ jobs:
         # Cloud Foundry API Endpoint
         CF_API_ENDPOINT: ${{ secrets.CF_API_ENDPOINT }}
         # Path to manifest.yml
-        MANIFEST_FILE_PATH: './src/manifest.yml'
+        MANIFEST_FILE_PATH: './manifest.yml'
         # # Cloud Foundry ORG Name
         # ORG: ${{ secrets.ORG }}
         # # Cloud Foundry Space Name for the specified ORG
