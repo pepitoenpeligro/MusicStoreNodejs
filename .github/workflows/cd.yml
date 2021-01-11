@@ -26,4 +26,4 @@ jobs:
           echo $(find . -name "manifest.yml" | head -1)
           ls -la 
           ls
-          ibmcloud cf push -f ./manifest.yml
+          ibmcloud cf push MusicStore -f ./manifest.yml
