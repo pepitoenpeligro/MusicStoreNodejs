@@ -11,6 +11,11 @@ exports.getSongs = (request, response) => {
             album:'Solitude Standing',
             artists: 'Suzanne Vega',
             duration:224
+        },{
+            title:'Energia Parte 2',
+            album:'energia (Parte 2)',
+            artists: 'Sofi Tukker & Pablo Vittar',
+            duration:268
         }
     ];
 

@@ -8,6 +8,9 @@ jobs:
     steps:
       - name: Download my repo
         uses: actions/checkout@v2
+        run: |
+          echo "This is all worflows can see:"
+          ls -la 
       - name: Installing ibmcloud CLI
         run: | 
           curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
@@ -25,7 +28,5 @@ jobs:
           ibmcloud target -o ${{ secrets.IBM_CLOUD_FOUNDRY_ORGANIZER_EMAIL }} -s ${{ secrets.IBM_CLOUD_FOUNDRY_PROJECT_ESPACE }}
       - name: Despliego en Cloud Foundry
         run: |
-          echo $(find . -name "manifest.yml" | head -1)
-          ls -la 
-          ls
-          ibmcloud cf push MusicStore -f ./manifest.yml
+          
+          ibmcloud cf push -f echo $(find . -name "manifest.yml" | head -1)
