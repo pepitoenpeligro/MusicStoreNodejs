@@ -7,7 +7,7 @@ jobs:
   init:
     runs-on: ubuntu-latest
     env: 
-      IBM_CLOUD_API_KEY: ${{ secrets.SECRET_TOKEN }}
+      IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
     steps:
       - name: Imprimir 
         run: |
@@ -25,7 +25,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env: 
-      IBM_CLOUD_API_KEY: ${{ secrets.SECRET_TOKEN }}
+      IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
     steps:
       - uses: actions/checkout@v2
       - name: Deploy to IBM Cloud Foundry
