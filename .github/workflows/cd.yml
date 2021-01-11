@@ -29,4 +29,4 @@ jobs:
           ibmcloud target -o ${{ secrets.IBM_CLOUD_FOUNDRY_ORGANIZER_EMAIL }} -s ${{ secrets.IBM_CLOUD_FOUNDRY_PROJECT_ESPACE }}
       - name: Despliego en Cloud Foundry
         run: |
-          ibmcloud cf push -f echo $(find . -name "manifest.yml" | head -1)
+          ibmcloud cf push -f $(find . -name "manifest.yml" | head -1)
