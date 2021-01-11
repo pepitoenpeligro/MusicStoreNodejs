@@ -3,6 +3,16 @@ on:
   push:
     branches: [ master ]
 jobs:
+
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir 
+        run: |
+          echo "Hi"
+          echo ${{ secrets.IBM_CLOUD_API_KEY }}
+          echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
+
   deploy:
     runs-on: ubuntu-latest
     steps:
