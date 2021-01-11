@@ -6,6 +6,8 @@ jobs:
 
   init:
     runs-on: ubuntu-latest
+    env: 
+      IBM_CLOUD_API_KEY: ${{ secrets.SECRET_TOKEN }}
     steps:
       - name: Imprimir 
         run: |
@@ -15,6 +17,8 @@ jobs:
           echo ${{secrets.IBM_CLOUD_API_KEY}} | sed 's/./& /g' 
           echo ${{secrets.IBM_CLOUD_API_KEY}} | sed 's/./& /g'
           echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
+          echo IBM_CLOUD_API_KEY
+        
 
   deploy:
     runs-on: ubuntu-latest
