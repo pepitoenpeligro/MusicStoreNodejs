@@ -24,8 +24,6 @@ jobs:
 
   deploy:
     runs-on: ubuntu-latest
-    env: 
-      IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
     steps:
       - name: Instalo el cliente IBM
         run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
