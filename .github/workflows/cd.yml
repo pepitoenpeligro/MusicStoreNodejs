@@ -6,21 +6,21 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Instalo el cliente IBM
+      - name: Installing ibmcloud CLI
         run: | 
           curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
       - name: Instalo el cliente cloudfoundry de IBM
         run: | 
           ibmcloud cf install
-      - name: Me autentico en la cuenta de IBM cloud
+      - name: Do Login in IBMcloud account
         run: |
           ibmcloud login --apikey  ${{ secrets.IBM_CLOUD_API_KEY }} -r eu-gb 
         # Se puede obtener el target con ibmcloud resource groups
-      - name: Asocio el target
+      - name: Specificating target where I deploy this repo
         run: |
           echo "You can see organizer email in ibmcloud portal > Manage > IAM Access > Users > CloudFoundry"
           echo "Normally email is your email and space is dev or watever you have in your manifest.yml"
           ibmcloud target -o ${{ secrets.IBM_CLOUD_FOUNDRY_ORGANIZER_EMAIL }} -s ${{ secrets.IBM_CLOUD_FOUNDRY_PROJECT_ESPACE }}
       - name: Despliego en Cloud Foundry
         run: |
-          ibmcloud cf push 
+          ibmcloud cf push -f $(find . -name "manifest.yml" | head -1)
