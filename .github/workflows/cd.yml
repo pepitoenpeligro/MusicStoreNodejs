@@ -24,4 +24,6 @@ jobs:
       - name: Despliego en Cloud Foundry
         run: |
           echo $(find . -name "manifest.yml" | head -1)
+          ls -la 
+          ls
           ibmcloud cf push -f ./manifest.yml
