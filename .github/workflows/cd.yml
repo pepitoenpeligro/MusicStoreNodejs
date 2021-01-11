@@ -1,14 +1,25 @@
 name: Deploy to IBM Cloud Foundry
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to IBM Cloud Foundry
-        # You may pin to the exact commit or the version.
-        uses: IBM/cloudfoundry-deploy@master
-        with:
-          IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+    - uses: actions/checkout@v2
+    - name: Deploy MyApp
+      uses: subhamx/ibm-cloud-foundry-deploy@master
+      with:
+        # For Users who have opted for Authentication using Email & Password
+        EMAIL: ${{ secrets.USER_EMAIL }}
+        PASSWORD: ${{ secrets.USER_PASSWORD }}
+        # For Users who have opted for Authentication using API KEY
+        API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+        # Cloud Foundry API Endpoint
+        CF_API_ENDPOINT: ${{ secrets.CF_API_ENDPOINT }}
+        # Path to manifest.yml
+        MANIFEST_FILE_PATH: './src/manifest.yml'
+        # # Cloud Foundry ORG Name
+        # ORG: ${{ secrets.ORG }}
+        # # Cloud Foundry Space Name for the specified ORG
+        # SPACE: ${{ secrets.SPACE }}
