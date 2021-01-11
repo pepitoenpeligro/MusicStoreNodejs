@@ -6,6 +6,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Download my repo
+        uses: actions/checkout@v2
       - name: Installing ibmcloud CLI
         run: | 
           curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
