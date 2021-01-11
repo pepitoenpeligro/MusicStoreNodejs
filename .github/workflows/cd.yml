@@ -12,7 +12,3 @@ jobs:
         uses: IBM/cloudfoundry-deploy@master
         with:
           IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
-        run: |
-          echo "Tratando de desplegar"
-          ibmcloud cf push
-          echo "Fin del workflow"
