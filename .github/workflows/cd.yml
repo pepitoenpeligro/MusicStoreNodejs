@@ -11,4 +11,6 @@ jobs:
         # You may pin to the exact commit or the version.
         uses: IBM/cloudfoundry-deploy@master
         with:
-          apikey: ${{ secrets.IBM_CLOUD_API_KEY }}
+          IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+          IBM_CLOUD_CF_ORG: 'joseinn@correo.ugr.es'
+          IBM_CLOUD_CF_SPACE: '1'
