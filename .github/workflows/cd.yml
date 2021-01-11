@@ -3,39 +3,23 @@ on:
   push:
     branches: [ master ]
 jobs:
-
-  init:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Imprimir 
-        run: |
-          echo "Hi"
-          echo ${{ secrets.IBM_CLOUD_API_KEY }}  | sed -e 's/\(.\)/\1 /g'
-          echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
-          echo ${{secrets.IBM_CLOUD_API_KEY}}  | sed -e 's/\(.\)/\1 /g'
-          echo ${{secrets.IBM_CLOUD_API_KEY}}  | sed -e 's/\(.\)/\1 /g'
-          echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}  | sed -e 's/\(.\)/\1 /g'
-          echo IBM_CLOUD_API_KEY  | sed -e 's/\(.\)/\1 /g'
-          echo $IBM_CLOUD_API_KEY  | sed -e 's/\(.\)/\1 /g'
-          echo ${IBM_CLOUD_API_KEY}  | sed -e 's/\(.\)/\1 /g'
-        
-
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Instalo el cliente IBM
-        run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
-        shell: bash
+        run: | 
+          curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
       - name: Instalo el cliente cloudfoundry de IBM
-        run: ibmcloud cf install
-        shell: bash
+        run: | 
+          ibmcloud cf install
       - name: Me autentico en la cuenta de IBM cloud
-        run: ibmcloud login --apikey  ${{ secrets.IBM_CLOUD_API_KEY }} -r eu-gb 
-        shell: bash
-      - name: Test
-        env:
-          TEST_GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}
         run: |
-          echo ${#TEST_GITHUB_TOKEN}
-          echo ${#TEST_SECRET}
+          ibmcloud login --apikey  ${{ secrets.IBM_CLOUD_API_KEY }} -r eu-gb 
+        # Se puede obtener el target con ibmcloud resource groups
+      - name: Asocio el target
+        run: |
+          echo "If you want to know the target id of your project execute ibmcloud resource group and collect the associated ID"
+          ibmcloud target -g $${{ secrets.IBM_CLOUD_TARGET_ID}}
+      - name: Despliego en Cloud Foundry
+        run: |
+          ibmcloud cf push 
