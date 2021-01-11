@@ -14,7 +14,7 @@ jobs:
         # EMAIL: ${{ secrets.IBM_CLOUD_API_KEY.USER_EMAIL }}
         # PASSWORD: ${{ secrets.IBM_CLOUD_API_KEY.USER_PASSWORD }}
         # # For Users who have opted for Authentication using API KEY
-        API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
+        IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
         # Cloud Foundry API Endpoint
         CF_API_ENDPOINT: ${{ secrets.CF_API_ENDPOINT }}
         # Path to manifest.yml
