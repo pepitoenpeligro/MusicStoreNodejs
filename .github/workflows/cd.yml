@@ -18,8 +18,9 @@ jobs:
         # Se puede obtener el target con ibmcloud resource groups
       - name: Asocio el target
         run: |
-          echo "If you want to know the target id of your project execute ibmcloud resource group and collect the associated ID"
-          ibmcloud target -g $${{ secrets.IBM_CLOUD_TARGET_ID}}
+          echo "You can see organizer email in ibmcloud portal > Manage > IAM Access > Users > CloudFoundry"
+          echo "Normally email is your email and space is dev or watever you have in your manifest.yml"
+          ibmcloud target -o ${{ secrets.IBM_CLOUD_FOUNDRY_ORGANIZER_EMAIL }} -s ${{ secrets.IBM_CLOUD_FOUNDRY_PROJECT_ESPACE }}
       - name: Despliego en Cloud Foundry
         run: |
           ibmcloud cf push 
