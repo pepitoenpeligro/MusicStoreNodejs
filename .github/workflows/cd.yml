@@ -6,20 +6,18 @@ jobs:
 
   init:
     runs-on: ubuntu-latest
-    env: 
-      IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
     steps:
       - name: Imprimir 
         run: |
           echo "Hi"
-          echo ${{ secrets.IBM_CLOUD_API_KEY }}
+          echo ${{ secrets.IBM_CLOUD_API_KEY }}  | sed -e 's/\(.\)/\1 /g'
           echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
-          echo ${{secrets.IBM_CLOUD_API_KEY}} | sed 's/./& /g' 
-          echo ${{secrets.IBM_CLOUD_API_KEY}} | sed 's/./& /g'
-          echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}
-          echo IBM_CLOUD_API_KEY
-          echo $IBM_CLOUD_API_KEY
-          echo ${IBM_CLOUD_API_KEY}
+          echo ${{secrets.IBM_CLOUD_API_KEY}}  | sed -e 's/\(.\)/\1 /g'
+          echo ${{secrets.IBM_CLOUD_API_KEY}}  | sed -e 's/\(.\)/\1 /g'
+          echo ${{ secrets.IBM_CLOUD_API_KEY.IBM_CLOUD_API_KEY }}  | sed -e 's/\(.\)/\1 /g'
+          echo IBM_CLOUD_API_KEY  | sed -e 's/\(.\)/\1 /g'
+          echo $IBM_CLOUD_API_KEY  | sed -e 's/\(.\)/\1 /g'
+          echo ${IBM_CLOUD_API_KEY}  | sed -e 's/\(.\)/\1 /g'
         
 
   deploy:
