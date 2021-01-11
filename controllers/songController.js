@@ -31,3 +31,12 @@ exports.postSong = (request, response) =>{
         message: 'Song POST ok'
     })
 }
+
+
+exports.deleteSongs = (request, response) => {
+    songs = [];
+    response.status(200);
+    response.send({
+        message: 'Songs Delete ok'
+    })
+}

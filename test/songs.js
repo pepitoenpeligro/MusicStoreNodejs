@@ -38,4 +38,13 @@ describe('songs', ()=>{
 
         })
     })
+
+    describe('DELETE', () => {
+        it('It should erase all songs from db', (done) => {
+
+            request
+                .delete(routeSong)
+                .expect(200, done);
+        })
+    })
 });
