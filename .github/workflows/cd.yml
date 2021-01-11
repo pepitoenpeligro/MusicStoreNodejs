@@ -27,11 +27,12 @@ jobs:
     env: 
       IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to IBM Cloud Foundry
-        # You may pin to the exact commit or the version.
-        uses: IBM/cloudfoundry-deploy@master
-        with:
-          IBM_CLOUD_API_KEY: ${{ secrets.IBM_CLOUD_API_KEY }}
-          IBM_CLOUD_CF_ORG: 'joseinn@correo.ugr.es'
-          IBM_CLOUD_CF_SPACE: '1'
+      - name: Instalo el cliente IBM
+        run: curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+        shell: bash
+      - name: Instalo el cliente cloudfoundry de IBM
+        run: ibmcloud cf install
+        shell: bash
+      - name: Me autentico en la cuenta de IBM cloud
+        run: ibmcloud login --apikey  ${{ secrets.IBM_CLOUD_API_KEY }} -r eu-gb 
+        shell: bash
