@@ -50,7 +50,11 @@ let PORT = process.env.PORT || 3320;
     app.listen(PORT, () => {
         console.log(`Microservice is running on port ${PORT}`);
     });
-})
+}).catch(() => {
+    app.listen(PORT, () => {
+        console.log(`Microservice is running on port ${PORT}`);
+    });
+});
 
 
 module.exports = app;

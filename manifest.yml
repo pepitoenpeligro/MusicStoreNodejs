@@ -1,0 +1,4 @@
+applications:
+- name: MusicStore
+  memory: 64M
+  commad: npm install && npm start

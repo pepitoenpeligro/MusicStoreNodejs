@@ -11,5 +11,5 @@ gulp.task('nodemon', function(){
 });
 
 gulp.task('run', function(){
-    return run('npm start').exec()
+    return run('npm install && npm start').exec()
 })
