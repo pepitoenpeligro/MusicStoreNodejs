@@ -20,6 +20,6 @@ jobs:
         # Path to manifest.yml
         MANIFEST_FILE_PATH: './manifest.yml'
         # Cloud Foundry ORG Name
-        ORG: ${{ secrets.ORG }}
+        ORG: 'joseinn@correo.ugr.es'
         # Cloud Foundry Space Name for the specified ORG
-        SPACE: ${{ secrets.SPACE }}
+        SPACE: '1'
